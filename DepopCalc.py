@@ -3,7 +3,10 @@
 #Including bundles when shipping is added to the total amount that you paid with the clothes that you paid for
 #Overall this program is gonna deduct all of the things that you are paying for then give you how much you are earing
 
-
+#this is what makes the text color
+import colorama
+from colorama import Fore, Style, init
+init(autoreset=True)
 #Here is gonna be the input that you are gonna enter on how
 bundle = input('Is this a bundle? ') 
 
@@ -29,11 +32,11 @@ def program(bundle):
         #In this liss 
         bundle_price_list = []
         #We then ask for the amount of items that are we gonna have in our bundle
-        bundle_num = int(input("How much are in the bundle? ")) 
+        bundle_num = int(input(f"{Fore.CYAN}How much are in the bundle? ")) 
         #We then create a for loop to let the use enter the items on how much each item costs
         for i in range(1, bundle_num + 1): 
             #It then asks how much the user sold it for
-            bundle_price =  float(input("How much did you sell them for? ")) 
+            bundle_price =  float(input(f"{Fore.CYAN}How much did you sell them for? ")) 
             #We then append that input that the user entered and then appened it or add it 
             #To the "bundle_price_list"
             bundle_price_list.append(bundle_price)
@@ -42,13 +45,13 @@ def program(bundle):
         #Another for loop in order to let the user enter how much each item actually went for
         for c in range(1, bundle_num + 1): 
             #Asks the user what the actual price of the item is
-            Actual_Price = float(input("How much did you buy each item for? "))
+            Actual_Price = float(input(f"{Fore.CYAN}How much did you buy each item for? "))
             #We then add it to the "Actual_Price_List" list
             Actual_Price_List.append(Actual_Price)
         #We then create a fee input because the app depop always does fees no matter if you are selling or buying
-        fee = float(input("How much was the fee for the bundle? ")) 
+        fee = float(input(f"{Fore.CYAN}How much was the fee for the bundle? ")) 
         #Then we ask the user how much was the shipping, because with bundles the user always pays for shipping
-        Shipping = float(input("How much was shipping? "))
+        Shipping = float(input(f"{Fore.CYAN}How much was shipping? "))
         #This is where the final result goes in or how much revenue we actually made goes in this list
         formula_list = [] 
         #This for loop is the one that actually does the calculations 
@@ -67,6 +70,6 @@ def program(bundle):
         #This loop helps us output how much revenue from each item the user got
         for i, emp in enumerate(formula_list, start=1):
             #This helps us output it more neatly by putting a number next to it  
-            print(f"Profit for item {i}: ${round(emp, 2)}")
+            print(f"{Fore.GREEN}Profit for item {i}: ${round(emp, 2)}")
 #This is what calls the whole function in order for the program to work
 program(bundle)
